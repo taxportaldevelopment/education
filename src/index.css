@@ -1,0 +1,55 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900 antialiased;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.about-banner{
+  height: 70vh;
+  background: url('./assets/about/page-header-bg-1-1.jpg') no-repeat;
+  background-size:cover;
+  background-position:right;
+}
+.service-banner{
+  height: 60vh;
+  background: url('./assets/service/service-1.jpg') no-repeat;
+  background-size:cover;
+  background-position:center;
+}
+.our-service{
+  background:linear-gradient(to right,#0000008a,#00000053) ,url('./assets/service/img-1.png') no-repeat;
+  background-size:cover;
+  background-position:right;
+  /* border-top-right-radius: 10px;
+  border-top-left-radius: 10px; */
+}
+
+@media screen and (max-width: 750px) {
+  .about-banner {
+    height: 50vh;
+  }
+
+  .service-banner {
+    height: 40vh;
+  }
+
+  .our-service {
+    background-position: center;
+  }
+}
