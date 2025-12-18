@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 import logo from "../assets/D.png";
 const links = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
+  { to: "/about", label: "About" }, 
   { to: "/services", label: "Services" },
-  { to: "/gallery", label: "Gallery" },
+  // { to: "/gallery", label: "Gallery" },
   { to: "/contact", label: "Contact" },
 ];
 

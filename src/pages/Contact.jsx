@@ -1,23 +1,48 @@
-import React from "react";
-
+import React, { useEffect, useState } from 'react'
+import { countries, getEmojiFlag } from 'countries-list';
+// images
+import contactImg from '../assets/contact/Contact us-rafiki.png'
 export default function Contact() {
+
+    const [countryList, setCountryList] = useState([])
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        // Convert countries object to array and set state
+        const countriesArray = Object.entries(countries).map(([code, data]) => ({
+            code,
+            name: data.name,
+            emoji: getEmojiFlag(code)
+        }))
+        setCountryList(countriesArray)
+        setLoading(false)
+    }, [])
+
+
   function handleSubmit(e) {
     e.preventDefault();
     alert("Thanks — your inquiry was received (demo).");
   }
 
   return (
-    <section>
-      <h2 className="text-3xl font-bold mb-8">Contact Us</h2>
+    <section className="">
+     <div>
+          <div className="contact-banners p-3 flex items-center">
+             <div>
+                  <h2 className="text-2xl font-bold text-white">Contact Us</h2>
+              <p className='text-white'>Lorem ipsum dolor sit amet.</p>
+             </div>
+         </div>
+     </div>
 
-      <div className="grid md:grid-cols-2 gap-8 mb-12">
+      <div className="p-2 grid md:grid-cols-2 gap-8 mb-12 mt-4">
         <div>
           <p className="text-lg text-gray-700 mb-6">
             Reach out for a free consultation. Provide basic details and we'll
             contact you with next steps.
           </p>
 
-          <div className="mb-6">
+          <div className="mb-6 border-t-4 border-blue-500 rounded shadow-sm p-3 ">
             <h4 className="font-semibold text-lg mb-3">Contact Info</h4>
             <ul className="text-gray-700 space-y-3">
               <li className="flex gap-3">
@@ -53,7 +78,8 @@ export default function Contact() {
               appointment.
             </p>
           </div>
-
+           {/* add company details */}
+            
           <div className="bg-gray-50 rounded-lg p-4">
             <h4 className="font-semibold mb-2">Response Time</h4>
             <p className="text-gray-700">
@@ -64,7 +90,7 @@ export default function Contact() {
 
         <form
           onSubmit={handleSubmit}
-          className="bg-white rounded-lg shadow-lg p-6"
+          className="bg-white rounded-lg shadow-lg p-6 border-t-4 border-blue-500 "
         >
           <h3 className="text-xl font-semibold mb-4">
             Get a Free Consultation
@@ -120,11 +146,11 @@ export default function Contact() {
               className="w-full border rounded px-3 py-2"
             >
               <option>Select a country...</option>
-              <option>USA</option>
-              <option>UK</option>
-              <option>Canada</option>
-              <option>Australia</option>
-              <option>Other</option>
+             {countryList.map((country) => (
+                <option key={country.code} value={country.code}>
+                  {country.emoji} {country.name}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -150,10 +176,10 @@ export default function Contact() {
         </form>
       </div>
 
-      <div className="mb-12">
+      <div className="p-2 mb-12">
         <h3 className="text-2xl font-bold mb-6">Frequently Asked Questions</h3>
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-gray-50 rounded-lg p-6">
+          <div className="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md border-t-4 border-blue-300">
             <h4 className="font-semibold text-lg mb-2">
               How long does approval take?
             </h4>
@@ -162,7 +188,7 @@ export default function Contact() {
               on the lender and can take 5-7 business days.
             </p>
           </div>
-          <div className="bg-gray-50 rounded-lg p-6">
+          <div className="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md border-t-4 border-blue-300">
             <h4 className="font-semibold text-lg mb-2">
               Do you charge any fees?
             </h4>
@@ -171,7 +197,7 @@ export default function Contact() {
               will be clearly disclosed upfront.
             </p>
           </div>
-          <div className="bg-gray-50 rounded-lg p-6">
+          <div className="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md border-t-4 border-blue-300">
             <h4 className="font-semibold text-lg mb-2">
               Which countries do you support?
             </h4>
@@ -180,7 +206,7 @@ export default function Contact() {
               UK, Canada, Australia, Germany, and more.
             </p>
           </div>
-          <div className="bg-gray-50 rounded-lg p-6">
+          <div className="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md border-t-4 border-blue-300">
             <h4 className="font-semibold text-lg mb-2">
               What's the minimum loan amount?
             </h4>
@@ -189,14 +215,14 @@ export default function Contact() {
               on the lender and your profile.
             </p>
           </div>
-          <div className="bg-gray-50 rounded-lg p-6">
+          <div className="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md border-t-4 border-blue-300">
             <h4 className="font-semibold text-lg mb-2">Can parents co-sign?</h4>
             <p className="text-gray-700">
               Yes! Many lenders accept parent co-signers, which can improve
               approval chances and interest rates.
             </p>
           </div>
-          <div className="bg-gray-50 rounded-lg p-6">
+          <div className="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md border-t-4 border-blue-300">
             <h4 className="font-semibold text-lg mb-2">
               Do you offer guidance on repayment?
             </h4>
@@ -207,6 +233,8 @@ export default function Contact() {
           </div>
         </div>
       </div>
+
     </section>
+     
   );
 }

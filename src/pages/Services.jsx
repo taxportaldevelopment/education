@@ -24,7 +24,7 @@ const services = [
     title: "Interest Rate Negotiation",
     desc: "Secure the lowest possible rates through expert negotiation on your behalf.",
     icon: "📈",
-    img: "https://images.unsplash.com/photo-1460925895917-aec73dcb74c0?w=600&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&auto=format&fit=crop",
   },
   {
     title: "Co-Signer Support",

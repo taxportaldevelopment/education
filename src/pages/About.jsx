@@ -3,8 +3,11 @@ import React from "react";
 export default function About() {
   return (
     <section className="bg-white">
-      <div className="about-banner">
-         
+      <div className="about-banner flex items-center p-5">
+          <div>
+               <h1 className="font-bold text-4xl text-white">ABOUT</h1>
+               <p className="font-semibold text-white w-full py-4 lg:w-1/2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ea nihil eveniet facilis exercitationem, quam fugiat! Fuga, tempora. Mollitia, dolorum?</p>
+          </div>
       </div>
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 mb-12 mt-5">

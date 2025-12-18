@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,7 +14,12 @@ body,
 body {
   @apply bg-gray-50 text-gray-900 antialiased;
 }
-
+/* text font */
+.bangers-regular {
+  font-family: "Bangers", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
 .app-shell {
   min-height: 100vh;
   display: flex;
@@ -28,7 +33,7 @@ body {
 }
 .service-banner{
   height: 60vh;
-  background: url('./assets/service/service-1.jpg') no-repeat;
+  background:linear-gradient(to right,#00000055,#00000053), url('./assets/service/top-banner.png') no-repeat;
   background-size:cover;
   background-position:center;
 }
@@ -36,10 +41,51 @@ body {
   background:linear-gradient(to right,#0000008a,#00000053) ,url('./assets/service/img-1.png') no-repeat;
   background-size:cover;
   background-position:right;
-  /* border-top-right-radius: 10px;
-  border-top-left-radius: 10px; */
 }
-
+/* Animation */
+.containerzer{
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	/* height: 100vh; */
+}
+.loan-get{
+   background: linear-gradient(to right,#0000008a,#0000008b) ,url(./assets//home/content-banner.png) no-repeat;
+   background-size: cover;
+   background-position:20%;
+}
+.text-animation{
+  background-image: url(https://www.shutterstock.com/image-vector/dots-halftone-green-color-pattern-600nw-2466577823.jpg  );
+  background-size: cover;
+  background-position: center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 10px;
+  animation: animation 15s linear infinite;
+}
+@keyframes animation {
+  to{
+     background-position-x: -500px;
+  }
+}
+/* contact-banner */
+.contact-banners{
+   height:70vh;
+   background:linear-gradient(to right,#00000088,#00000090) ,url('./assets/contact/contact-banner.png') no-repeat;
+   background-size: cover;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 @media screen and (max-width: 750px) {
   .about-banner {
     height: 50vh;
@@ -49,7 +95,11 @@ body {
     height: 40vh;
   }
 
-  .our-service {
-    background-position: center;
-  }
+.service-banner{
+  height: 20vh;
+  background-position:center;
+}
+.contact-banners{
+    height: 40vh;
+}
 }

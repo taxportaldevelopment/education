@@ -12,7 +12,7 @@ export default function App() {
   return (
     <div className="app-shell">
       <Nav />
-      <main className="flex-1 container mx-auto">
+      <main className="flex-1 container mx-auto ">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
