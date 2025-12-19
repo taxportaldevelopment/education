@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 {/* Service Banner */}
 <div className="bg-blue-100 py-8 border-b-2 border-blue-200"></div>
 
@@ -54,6 +56,12 @@ const features = [
 ];
 
 export default function Services() {
+      useEffect(() => {
+        function getRefresh() {
+          window.scrollTo(0, 0);
+        }
+        getRefresh();
+      }, []);
   return (
     <section className="w-full bg-gray-400">
        <div className="service-banner">

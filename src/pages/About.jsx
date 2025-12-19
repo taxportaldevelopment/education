@@ -1,6 +1,13 @@
-import React from "react";
+import {useEffect} from "react";
 
 export default function About() {
+
+    useEffect(() => {
+      function getRefresh() {
+        window.scrollTo(0, 0);
+      }
+      getRefresh();
+    }, []);
   return (
     <section className="bg-white">
       <div className="about-banner flex items-center p-5">

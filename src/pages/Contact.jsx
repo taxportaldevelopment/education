@@ -8,6 +8,10 @@ export default function Contact() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+          function getRefresh() {
+      window.scrollTo(0, 0);
+    }
+    getRefresh();
         // Convert countries object to array and set state
         const countriesArray = Object.entries(countries).map(([code, data]) => ({
             code,
@@ -23,7 +27,6 @@ export default function Contact() {
     e.preventDefault();
     alert("Thanks — your inquiry was received (demo).");
   }
-
   return (
     <section className="">
      <div>
